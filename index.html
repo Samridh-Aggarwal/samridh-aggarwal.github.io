@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samridh Aggarwal</title>
+  <meta name="description" content="Samridh Aggarwal, economics researcher working on behavioral game theory and the evaluation of language models.">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1c1c1a;
+      --muted: #5b5a54;
+      --faint: #8d8c84;
+      --border: #e7e6e1;
+      --accent: #0969da;
+
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-serif: Georgia, "Times New Roman", serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #222220;
+        --text: #ececea;
+        --muted: #a8a79e;
+        --faint: #76746b;
+        --border: #36342d;
+        --accent: #58a6ff;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 72px 24px 64px;
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin: 0 0 10px;
+    }
+
+    .tagline {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 28px;
+      margin-top: 36px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tab {
+      appearance: none;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      padding: 0 0 12px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      color: var(--faint);
+      cursor: pointer;
+      transition: color 0.12s ease, border-color 0.12s ease;
+    }
+
+    .tab:hover { color: var(--text); }
+
+    .tab[aria-selected="true"] {
+      color: var(--text);
+      border-bottom-color: var(--text);
+    }
+
+    .tab:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    .panel { padding-top: 28px; }
+    .panel p { margin: 0; }
+    .lede { color: var(--text); font-size: 15.5px; }
+
+    .proj a {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .proj a:hover { text-decoration: underline; }
+
+    .proj p {
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--muted);
+      margin: 6px 0 8px;
+    }
+
+    .meta {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: var(--faint);
+    }
+
+    .pub-title {
+      display: block;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .venue {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: var(--faint);
+      margin-top: 4px;
+    }
+
+    footer {
+      margin-top: 44px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+    }
+
+    footer a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--text); }
+    footer svg { display: block; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .tab { transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+
+    <header>
+      <h1>Samridh Aggarwal</h1>
+      <p class="tagline">I study human behavior with machines and machine behavior with humans.</p>
+    </header>
+
+    <div class="tabs" role="tablist" aria-label="Sections">
+      <button class="tab" role="tab" id="tab-about" aria-controls="panel-about" aria-selected="true">About</button>
+      <button class="tab" role="tab" id="tab-research" aria-controls="panel-research" aria-selected="false">Research</button>
+      <button class="tab" role="tab" id="tab-projects" aria-controls="panel-projects" aria-selected="false">Projects</button>
+    </div>
+
+    <section class="panel" role="tabpanel" id="panel-about" aria-labelledby="tab-about">
+      <p class="lede">I work on how people learn and cooperate, and on what language models can and can't tell us about human behavior.</p>
+    </section>
+
+    <section class="panel" role="tabpanel" id="panel-research" aria-labelledby="tab-research">
+      <div class="pub">
+        <span class="pub-title">Beyond Accuracy: A Replication Fidelity Framework for Trustworthy LLM Evaluation in Social Science Applications</span>
+        <div class="venue">NLPOR Workshop, COLM 2025</div>
+      </div>
+    </section>
+
+    <section class="panel" role="tabpanel" id="panel-projects" aria-labelledby="tab-projects">
+      <div class="proj">
+        <a href="https://github.com/Samridh-Aggarwal/ewa-learning">ewa-learning</a>
+        <p>A minimal, readable implementation of experience-weighted attraction learning.</p>
+        <div class="meta">Python &middot; MIT</div>
+      </div>
+    </section>
+
+    <footer>
+      <a href="https://github.com/Samridh-Aggarwal">
+        <svg height="15" width="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.27-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8z"></path></svg>
+        GitHub
+      </a>
+      <a href="mailto:samridh25@outlook.com">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        Email
+      </a>
+      <a href="#">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/></svg>
+        CV
+      </a>
+    </footer>
+
+  </main>
+
+  <script>
+    const tabs = [...document.querySelectorAll('[role="tab"]')];
+
+    function select(chosen) {
+      tabs.forEach(tab => {
+        const isOpen = tab === chosen;
+        tab.setAttribute('aria-selected', isOpen ? 'true' : 'false');
+        document.getElementById(tab.getAttribute('aria-controls')).hidden = !isOpen;
+      });
+    }
+
+    tabs.forEach(tab => tab.addEventListener('click', () => select(tab)));
+    select(tabs[0]);
+  </script>
+
+</body>
+</html>
