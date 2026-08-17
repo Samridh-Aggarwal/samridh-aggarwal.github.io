@@ -5,38 +5,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Samridh Aggarwal</title>
-  <meta name="description" content="Samridh Aggarwal, economics researcher working on behavioral game theory and the evaluation of language models.">
+  <meta name="description" content="Samridh Aggarwal, researcher working on learning and cooperation, model behaviour, and the evaluation of machine learning systems.">
+  <meta name="theme-color" content="#080D18">
 
   <style>
     :root {
-      --bg: #ffffff;
-      --text: #1c1c1a;
-      --muted: #5b5a54;
-      --faint: #8d8c84;
-      --border: #e7e6e1;
-      --accent: #0969da;
+      --sky: #080D18;
+      --text: #E9EEF7;
+      --muted: #A9BBD4;
+      --faint: #6F84A6;
+      --border: rgba(233, 238, 247, 0.15);
+      --accent: #7FB2D9;
 
       --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       --font-serif: Georgia, "Times New Roman", serif;
       --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
     }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #222220;
-        --text: #ececea;
-        --muted: #a8a79e;
-        --faint: #76746b;
-        --border: #36342d;
-        --accent: #58a6ff;
-      }
-    }
-
     *, *::before, *::after { box-sizing: border-box; }
-    body { margin: 0; }
 
     body {
-      background: var(--bg);
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--sky);
       color: var(--text);
       font-family: var(--font-sans);
       font-size: 16px;
@@ -44,32 +37,36 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    .masthead, .ground { flex: none; line-height: 0; }
+    .masthead svg, .ground svg { display: block; width: 100%; height: auto; }
+
     .wrap {
-      max-width: 640px;
+      flex: 1;
+      width: 100%;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 72px 24px 64px;
+      padding: 8px clamp(20px, 4vw, 48px) 72px;
     }
 
     h1 {
-      font-size: 26px;
+      font-size: 36px;
       font-weight: 600;
-      letter-spacing: -0.01em;
-      margin: 0 0 10px;
+      letter-spacing: -0.015em;
+      margin: 0 0 13px;
     }
 
     .tagline {
       font-family: var(--font-serif);
       font-style: italic;
-      font-size: 18px;
+      font-size: 20px;
       line-height: 1.5;
       color: var(--muted);
-      margin: 0;
+      margin: 0 0 44px;
     }
 
     .tabs {
       display: flex;
       gap: 28px;
-      margin-top: 36px;
       border-bottom: 1px solid var(--border);
     }
 
@@ -79,9 +76,9 @@
       border: none;
       border-bottom: 2px solid transparent;
       margin-bottom: -1px;
-      padding: 0 0 12px;
+      padding: 0 0 14px;
       font-family: var(--font-mono);
-      font-size: 13px;
+      font-size: 14.5px;
       letter-spacing: 0.02em;
       color: var(--faint);
       cursor: pointer;
@@ -92,7 +89,7 @@
 
     .tab[aria-selected="true"] {
       color: var(--text);
-      border-bottom-color: var(--text);
+      border-bottom-color: var(--accent);
     }
 
     .tab:focus-visible,
@@ -104,37 +101,42 @@
 
     .panel { padding-top: 28px; }
     .panel p { margin: 0; }
-    .lede { color: var(--text); font-size: 15.5px; }
+    .lede { font-size: 17px; line-height: 1.8; text-wrap: pretty; }
+    .panel .lede + .lede { margin-top: 19px; }
 
     .proj a {
+      display: inline-block;
+      padding: 4px 11px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
       font-family: var(--font-mono);
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 500;
       color: var(--accent);
       text-decoration: none;
+      transition: border-color 0.12s ease;
     }
 
-    .proj a:hover { text-decoration: underline; }
+    .proj a:hover { border-color: var(--accent); }
 
     .proj p {
-      font-size: 14.5px;
-      line-height: 1.6;
+      font-size: 15px;
+      line-height: 1.7;
       color: var(--muted);
+      text-wrap: pretty;
       margin: 6px 0 8px;
     }
 
-    .meta {
-      font-family: var(--font-mono);
-      font-size: 12.5px;
-      color: var(--faint);
-    }
+    .proj + .proj { margin-top: 26px; }
+
+    .meta { font-family: var(--font-mono); font-size: 12.5px; color: var(--faint); }
 
     .pub-title {
       display: block;
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--text);
-      line-height: 1.5;
+      font-size: 17.5px;
+      font-weight: 600;
+      line-height: 1.45;
+      letter-spacing: -0.005em;
     }
 
     .venue {
@@ -144,15 +146,45 @@
       margin-top: 4px;
     }
 
+    .pub .authors {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--muted);
+      margin: 6px 0 0;
+    }
+
+    .pub .authors strong { color: var(--text); font-weight: 600; }
+
+    .pub-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 10px;
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+    }
+
+    .pub-links a {
+      display: inline-block;
+      padding: 4px 11px;
+      border: 1px solid var(--border);
+      border-radius: 0;
+      color: var(--accent);
+      text-decoration: none;
+      transition: border-color 0.12s ease;
+    }
+
+    .pub-links a:hover { border-color: var(--accent); }
+
     footer {
-      margin-top: 44px;
-      padding-top: 24px;
+      margin-top: 46px;
+      padding-top: 18px;
       border-top: 1px solid var(--border);
       display: flex;
       flex-wrap: wrap;
-      gap: 22px;
+      gap: 26px;
       font-family: var(--font-mono);
-      font-size: 13px;
+      font-size: 14.5px;
     }
 
     footer a {
@@ -173,6 +205,14 @@
 </head>
 
 <body>
+
+  <div class="masthead" aria-hidden="true">
+    <svg viewBox="0 0 600 74" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="80" cy="32" r="1.4" fill="#E8EDF7" opacity="0.55"/><circle cx="156" cy="18" r="1" fill="#E8EDF7" opacity="0.4"/><circle cx="228" cy="46" r="1.4" fill="#E8EDF7" opacity="0.5"/><circle cx="312" cy="22" r="1" fill="#E8EDF7" opacity="0.45"/><circle cx="384" cy="58" r="1.4" fill="#E8EDF7" opacity="0.4"/><circle cx="440" cy="26" r="1" fill="#E8EDF7" opacity="0.5"/><circle cx="560" cy="90" r="1.2" fill="#E8EDF7" opacity="0.4"/><circle cx="44" cy="74" r="1.2" fill="#E8EDF7" opacity="0.45"/>
+      <circle cx="516" cy="42" r="22" fill="#F2E3B8"/>
+    </svg>
+  </div>
+
   <main class="wrap">
 
     <header>
@@ -187,40 +227,75 @@
     </div>
 
     <section class="panel" role="tabpanel" id="panel-about" aria-labelledby="tab-about">
-      <p class="lede">I work on how people learn and cooperate, and on what language models can and can't tell us about human behavior.</p>
+      <p class="lede">I work on learning and behavior. Whether the learner is a person in a lab or a network on a GPU changes less than you would expect. The same questions apply to both: what it takes from feedback, what it ignores, and how small differences in the machinery turn into large differences in behaviour. I started out asking them about people. Most of my time now goes on asking them about models.</p>
+
+      <p class="lede">I try to answer one question with every method that can speak to it, because the methods fail in completely different ways. A proof can be sound and say nothing. A simulation can be internally perfect and describe nothing real. An experiment can be beautifully run and measure the wrong thing. A trained network can be right for reasons nobody can recover. The claim that survives is worth something. Most of the work goes into the instruments rather than the results, and most of what I have learned so far came from catching faults in my own setup.</p>
+
     </section>
 
     <section class="panel" role="tabpanel" id="panel-research" aria-labelledby="tab-research">
       <div class="pub">
-        <span class="pub-title">Beyond Accuracy: A Replication Fidelity Framework for Trustworthy LLM Evaluation in Social Science Applications</span>
-        <div class="venue">NLPOR Workshop, COLM 2025</div>
+        <span class="pub-title">Beyond Accuracy: A Replication Fidelity Framework for LLM Evaluation</span>
+        <p class="authors">Peng, C., <strong>Aggarwal, S.</strong>, Aassve, A., Lupo, L., &amp; Cavalli, N. (2025)</p>
+        <div class="venue">NLPOR @ COLM 2025, Montreal</div>
+        <div class="pub-links">
+          <a href="https://openreview.net/forum?id=yy6yzdsr6V" target="_blank" rel="noopener">OpenReview</a>
+          <a href="https://drive.google.com/file/d/1ZkaNw720qSVddwDUbrV63b9OZAe5xEvN/view?usp=sharing" target="_blank" rel="noopener">Preprint</a>
+        </div>
       </div>
     </section>
 
     <section class="panel" role="tabpanel" id="panel-projects" aria-labelledby="tab-projects">
       <div class="proj">
-        <a href="https://github.com/Samridh-Aggarwal/ewa-learning">ewa-learning</a>
-        <p>A minimal, readable implementation of experience-weighted attraction learning.</p>
+        <a href="https://github.com/Samridh-Aggarwal/prior-pull" target="_blank" rel="noopener">prior-pull</a>
+        <p>When you hand a language model somebody's demographics and ask how they answered a survey, does it read the person, or just react to being handed a profile? Twelve models scored against gibberish placebos. Instruction tuning installs the reaction, by factors of 6 to 83 across every family tested, but only two of five instruct models respond to a real person more than to nonsense, and one responds measurably less.</p>
         <div class="meta">Python &middot; MIT</div>
       </div>
+
+      <div class="proj">
+        <a href="https://github.com/Samridh-Aggarwal/perception-gap" target="_blank" rel="noopener">perception-gap</a>
+        <p>Do frozen vision encoders trained on photographs tell meaningful satellite changes from cosmetic ones? Twelve encoders on EuroSAT tiles, perturbed in ways that alter content and ways that do not. All land above chance and none near ceiling, more pretraining data measurably helps for a fixed objective, and a satellite-native model carries an orientation prior no photo model has.</p>
+        <div class="meta">Python &middot; MIT</div>
+      </div>
+
     </section>
 
     <footer>
       <a href="https://github.com/Samridh-Aggarwal">
-        <svg height="15" width="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.27-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8z"></path></svg>
+        <svg height="17" width="17" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.27-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8z"></path></svg>
         GitHub
       </a>
       <a href="mailto:samridh25@outlook.com">
-        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
         Email
       </a>
-      <a href="#">
-        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/></svg>
+      <a href="https://drive.google.com/file/d/18K6nxM364AfsHUWxtEez2KjHEIibtrVo/view?usp=share_link" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/></svg>
         CV
       </a>
     </footer>
 
   </main>
+
+  <div class="ground" aria-hidden="true">
+    <svg viewBox="0 100 600 100" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="146" width="150" height="54" fill="#1D2B44"/><rect x="0" y="146" width="150" height="2" fill="#2A3D62"/>
+      <rect x="110" y="122" width="120" height="80" fill="#233457"/><rect x="110" y="122" width="120" height="2" fill="#33497E"/>
+      <rect x="210" y="158" width="140" height="42" fill="#1D2B44"/><rect x="210" y="158" width="140" height="2" fill="#2A3D62"/>
+      <rect x="147" y="144" width="16" height="16" rx="2" fill="#14203C"/><rect x="177" y="144" width="16" height="16" rx="2" fill="#14203C"/>
+      <ellipse cx="26" cy="142" rx="12" ry="3.6" fill="#6B8F3A" transform="rotate(-7 26 142)"/><ellipse cx="60" cy="142.2" rx="12" ry="3.6" fill="#5F8134" transform="rotate(5 60 142.2)"/><ellipse cx="94" cy="142" rx="12" ry="3.6" fill="#6B8F3A" transform="rotate(-3 94 142)"/>
+      <ellipse cx="164" cy="111" rx="10" ry="6" fill="#14203C"/><circle cx="173" cy="104" r="4.6" fill="#14203C"/><path d="M177 103 L186 105 L177 107 Z" fill="#14203C"/><path d="M154 110 L142 104 L156 114 Z" fill="#14203C"/>
+      <path d="M350 178 Q385 170 420 178 T490 178 T560 178 T620 178 L620 204 L350 204 Z" fill="#16304A"/>
+      <path d="M350 192 L620 189 L620 204 L350 204 Z" fill="#0B2131"/>
+      <ellipse cx="548" cy="190" rx="14" ry="4" fill="#F2E3B8" opacity="0.22"/>
+      <path d="M426 176 V150" stroke="#DCE4F2" stroke-width="2" stroke-linecap="round"/><path d="M436 176 V150" stroke="#DCE4F2" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="430" cy="140" rx="17" ry="9" fill="#E8EDF7"/>
+      <path d="M441 136 Q452 130 452 115" fill="none" stroke="#E8EDF7" stroke-width="3.5" stroke-linecap="round"/>
+      <circle cx="452" cy="112" r="4.4" fill="#E8EDF7"/><path d="M456 111 L472 114 L456 115 Z" fill="#F2C14E"/>
+      <path d="M411 138 L396 145 L412 144 Z" fill="#C9D4E8"/>
+      <ellipse cx="506" cy="192" rx="13" ry="6" fill="#7FB2D9"/><path d="M494 192 L482 186 L482 198 Z" fill="#7FB2D9"/><circle cx="513" cy="190" r="1.5" fill="#080D18"/>
+    </svg>
+  </div>
 
   <script>
     const tabs = [...document.querySelectorAll('[role="tab"]')];
