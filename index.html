@@ -146,6 +146,9 @@
       margin-top: 4px;
     }
 
+    .venue a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--border); }
+    .venue a:hover { border-bottom-color: var(--accent); }
+
     .pub .authors {
       font-size: 14px;
       line-height: 1.6;
@@ -217,7 +220,7 @@
 
     <header>
       <h1>Samridh Aggarwal</h1>
-      <p class="tagline">I study human behavior with machines and machine behavior with humans.</p>
+      <p class="tagline">I study human behaviour with machines and machine behaviour with humans.</p>
     </header>
 
     <div class="tabs" role="tablist" aria-label="Sections">
@@ -227,20 +230,21 @@
     </div>
 
     <section class="panel" role="tabpanel" id="panel-about" aria-labelledby="tab-about">
-      <p class="lede">I work on learning and behavior. Whether the learner is a person in a lab or a network on a GPU changes less than you would expect. The same questions apply to both: what it takes from feedback, what it ignores, and how small differences in the machinery turn into large differences in behaviour. I started out asking them about people. Most of my time now goes on asking them about models.</p>
+      <p class="lede">Whether the learner is a person in a lab or a network on a GPU matters less than you would expect. The same questions apply to both: what it takes from feedback, what it ignores, and how small differences in the machinery turn into large differences in behaviour. I started out asking them about people. Now I mostly ask them about models.</p>
 
-      <p class="lede">I try to answer one question with every method that can speak to it, because the methods fail in completely different ways. A proof can be sound and say nothing. A simulation can be internally perfect and describe nothing real. An experiment can be beautifully run and measure the wrong thing. A trained network can be right for reasons nobody can recover. The claim that survives is worth something. Most of the work goes into the instruments rather than the results, and most of what I have learned so far came from catching faults in my own setup.</p>
-
+      <p class="lede">I try to answer any one question with every method that can speak to it, because the methods fail in completely different ways. A proof can be sound and say nothing. A simulation can be internally perfect and describe nothing real. An experiment can be beautifully run and measure the wrong thing. A trained network can be right for reasons nobody can recover. A claim that survives all four is unlikely to be surviving by accident. The work is mostly in the instruments, not the results, and most of what I have learned so far came from catching faults in my own setup.</p>
     </section>
 
     <section class="panel" role="tabpanel" id="panel-research" aria-labelledby="tab-research">
       <div class="pub">
         <span class="pub-title">Beyond Accuracy: A Replication Fidelity Framework for LLM Evaluation</span>
         <p class="authors">Peng, C., <strong>Aggarwal, S.</strong>, Aassve, A., Lupo, L., &amp; Cavalli, N. (2025)</p>
-        <div class="venue">NLPOR @ COLM 2025, Montreal</div>
+        <div class="venue">NLPOR @ COLM 2025, Montreal &middot; Non-archival</div>
+        <div class="venue">Also presented at <a href="https://epc2026.eaps.nl/abstracts/261361" target="_blank" rel="noopener">EPC 2026</a>, Bologna</div>
         <div class="pub-links">
           <a href="https://openreview.net/forum?id=yy6yzdsr6V" target="_blank" rel="noopener">OpenReview</a>
           <a href="https://drive.google.com/file/d/1ZkaNw720qSVddwDUbrV63b9OZAe5xEvN/view?usp=sharing" target="_blank" rel="noopener">Preprint</a>
+          <a href="https://drive.google.com/file/d/1lg-8Yg0a_H0H7trV3oMmLVQ7nAAvnZzg/view?usp=sharing" target="_blank" rel="noopener">Poster</a>
         </div>
       </div>
     </section>
@@ -268,10 +272,6 @@
       <a href="mailto:samridh25@outlook.com">
         <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
         Email
-      </a>
-      <a href="https://drive.google.com/file/d/18K6nxM364AfsHUWxtEez2KjHEIibtrVo/view?usp=share_link" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/></svg>
-        CV
       </a>
     </footer>
 
