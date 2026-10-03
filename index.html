@@ -96,7 +96,7 @@
     a:focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 3px;
-      border-radius: 2px;
+      border-radius: 5px;
     }
 
     .panel { padding-top: 28px; }
@@ -107,17 +107,18 @@
     .proj a {
       display: inline-block;
       padding: 4px 11px;
-      border: 1px solid var(--border);
-      border-radius: 2px;
+      border: 1px solid rgba(127, 178, 217, 0.35);
+      border-radius: 6px;
+      background: rgba(127, 178, 217, 0.08);
       font-family: var(--font-mono);
       font-size: 14px;
       font-weight: 500;
       color: var(--accent);
       text-decoration: none;
-      transition: border-color 0.12s ease;
+      transition: border-color 0.12s ease, background-color 0.12s ease;
     }
 
-    .proj a:hover { border-color: var(--accent); }
+    .proj a:hover { border-color: var(--accent); background: rgba(127, 178, 217, 0.15); }
 
     .proj p {
       font-size: 15px;
@@ -170,14 +171,15 @@
     .pub-links a {
       display: inline-block;
       padding: 4px 11px;
-      border: 1px solid var(--border);
-      border-radius: 0;
+      border: 1px solid rgba(127, 178, 217, 0.35);
+      border-radius: 6px;
+      background: rgba(127, 178, 217, 0.08);
       color: var(--accent);
       text-decoration: none;
-      transition: border-color 0.12s ease;
+      transition: border-color 0.12s ease, background-color 0.12s ease;
     }
 
-    .pub-links a:hover { border-color: var(--accent); }
+    .pub-links a:hover { border-color: var(--accent); background: rgba(127, 178, 217, 0.15); }
 
     footer {
       margin-top: 46px;
